@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span>EMPLEADOS</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-empleado">EMPLEADOS</button>
+                    <button class="btn btn-success float-start" routerLink="/usuarios">LISTA USERS</button>    
+
+                    <table class="table table-striped mt-5" *ngIf="listaEmpleados.length > 0">
+                        <thead>
+                          <tr>                            
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let emp of listaEmpleados">                            
+                            <td>{{emp.nombre}}</td>
+                            <td>{{emp.apellido}}</td>
+                            <td>{{emp.edad}}</td>
+                            <td>
+                                <button [routerLink]="['/modificar-empleado',emp.idUnico]" class="btn btn-success" style="margin-right: 10px;">Editar</button>
+                                <button (click)="eliminaEmpleado(emp.idUnico)" class="btn btn-danger">Eliminar</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 style="color:crimson;" *ngIf="listaEmpleados.length == 0">NO HAY EMPLEADOS EN LA BASE</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

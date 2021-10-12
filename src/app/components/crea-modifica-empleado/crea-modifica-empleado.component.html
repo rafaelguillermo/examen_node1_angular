@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span>CREAR EMPLEADOS</span>
+
+                    <form class="mt-3" [formGroup]="form" (ngSubmit)="addModEmpleado()">
+                        <div class="mb-3">
+                            <input type="text" placeholder="Nombre" class="form-control" id="nombre"
+                                formControlName="nombre">
+                            <div class="errorvalida" *ngIf="form.get('nombre')?.hasError('required')">
+                                <span>El nombre es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" placeholder="Apellido" class="form-control" id="apellido"
+                                formControlName="apellido">
+                            <div class="errorvalida" *ngIf="form.get('apellido')?.hasError('required')">
+                                <span>El nombre es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" placeholder="Edad" class="form-control" id="edad"
+                                formControlName="edad">
+                            <div class="errorvalida" *ngIf="form.get('edad')?.hasError('required')">
+                                <span>El nombre es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <button routerLink="/empleados" class="btn btn-secondary btn-lg float-start">Atras</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
